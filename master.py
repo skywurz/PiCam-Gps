@@ -17,28 +17,8 @@ import subprocess
 import picamera
 import collections
 import shutil
-####################Globals##########################
-usbcardpath = "usbstore"
-localstore = "localstore"
-scriptpath = "scripts"
-#wifistat = open(usbcardpath+'/'+filetimeString+'.txt', 'w')
+from settings import *
 
-ftp = True
-gpsenable = True
-recordenable = True
-testing = False
-
-####SSIDs####
-homessid = 'HomeWifi'
-mobilessid = 'MobilWiFi'
-#mobilessid = 'test'
-workssid = 'WorkWiFi'
-
-
-####FTP Credentials####
-ftpserveradder = 'ftp.yourwebsite.com'
-ftpuser = 'user@yourwebsite.com'
-ftppass = 'pass'
 #Some OS level notes
 # cgps -s #to look at output
 # sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.sock #to initialize 
