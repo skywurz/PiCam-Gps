@@ -479,17 +479,17 @@ try:
             if ftp:
                 try:
                     session = ftplib.FTP(ftpserveradder,ftpuser,ftppass)
+                
+                    file = open(scriptpath+'/'+'bikekml.kml','rb')  # file to send      
+                    session.storbinary('STOR bikekml.kml', file)     # send the file
+                    file.close()                                    # close file and FTP
+                    if recordenable:
+                        file = open(localstore+'/'+stillframename+'.jpg','rb')  # file to send  
+                        session.cwd('img')
+                        session.storbinary('STOR '+stillframename+'.jpg', file)     # send the file
+                    session.quit()
                 except:
                     pass
-            if ftp:
-                file = open(scriptpath+'/'+'bikekml.kml','rb')  # file to send      
-                session.storbinary('STOR bikekml.kml', file)     # send the file
-                file.close()                                    # close file and FTP
-                if recordenable:
-                    file = open(localstore+'/'+stillframename+'.jpg','rb')  # file to send  
-                    session.cwd('img')
-                    session.storbinary('STOR '+stillframename+'.jpg', file)     # send the file
-                session.quit()
             time.sleep(140)
     #####Takes Photo From Running Video####        
     def photo():
@@ -553,17 +553,17 @@ try:
                 if ftp:
                     try:
                         session = ftplib.FTP(ftpserveradder,ftpuser,ftppass)
+                    
+                        file = open(scriptpath+'/'+'bikekml.kml','rb')  # file to send      
+                        session.storbinary('STOR bikekml.kml', file)     # send the file
+                        file.close()                                    # close file and FTP
+                        if recordenable:
+                            file = open(localstore+'/'+stillframename+'.jpg','rb')  # file to send  
+                            session.cwd('img')
+                            session.storbinary('STOR '+stillframename+'.jpg', file)     # send the file
+                        session.quit()
                     except:
-                        pass
-                if ftp:
-                    file = open(scriptpath+'/'+'bikekml.kml','rb')  # file to send      
-                    session.storbinary('STOR bikekml.kml', file)     # send the file
-                    file.close()                                    # close file and FTP
-                    if recordenable:
-                        file = open(localstore+'/'+stillframename+'.jpg','rb')  # file to send  
-                        session.cwd('img')
-                        session.storbinary('STOR '+stillframename+'.jpg', file)     # send the file
-                    session.quit()             
+                        pass           
     ########Record Video###########
     def recorder():
         print('Recorder Thread Starting')
