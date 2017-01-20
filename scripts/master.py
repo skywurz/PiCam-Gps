@@ -48,12 +48,9 @@ pidfilew.close()
 def timenow():
     global timeString
     global filetimeString
-    global hourofday
     localtime   = time.localtime()
     timeString  = time.strftime("%I:%M:%S %p - %m/%d/%y", localtime)
     filetimeString  = time.strftime("%Y%m%d_%H%M", localtime)
-    hourofday = time.strftime("%HH", localtime)
-    hourofday = hourofday.replace("H","")
 def unit_conversion(thing, units, length=False):
     """converts base data between metric, imperial, or nautical units"""
     if 'n/a' == thing:
@@ -650,7 +647,9 @@ try:
                     pass
             gps = False
             record = False
-            if safetoshutdown and int(hourofday) == 19 and home and not testing and not mobile:
+            hourofday = datetime.datetime.now().time()
+            autoshutdowntime = datetime.time(19) 
+            if safetoshutdown and hourofday >= autoshutdowntime and home and not testing and not mobile:
                     print("System will Powered off in 10 Min")
                     time.sleep(600)
                     os.system("poweroff")
