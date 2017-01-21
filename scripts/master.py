@@ -145,6 +145,7 @@ try:
                 
     ########Get Up Time##########
     def uptime():
+        global uptime
         uptimesec = os.popen("awk '{print $1}' /proc/uptime").readline()
         m, s = divmod(float(uptimesec), 60)
         h, m = divmod(m, 60)
@@ -650,16 +651,17 @@ try:
             hourofday = datetime.datetime.now().time()
             autoshutdowntime = datetime.time(19) 
             if safetoshutdown and hourofday >= autoshutdowntime and home and not testing and not mobile:
+                uptime()
+                if uptime > "00:00:10:00":
                     print("System will Powered off in 10 Min")
                     time.sleep(600)
                     os.system("poweroff")
                     
             time.sleep(30)
-        
-        
+            
         time.sleep(30)
 
-
+        
 finally:
     os.unlink(pidfile) 
     pass
