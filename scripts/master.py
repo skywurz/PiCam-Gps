@@ -651,7 +651,7 @@ try:
             hourofday = datetime.datetime.now().time()
             autoshutdowntime = datetime.time(19) 
             if safetoshutdown and hourofday >= autoshutdowntime and home and not testing and not mobile:
-                uptime()
+                print(uptime())
                 if uptime > "00:00:10:00":
                     print("System will Powered off in 10 Min")
                     time.sleep(600)
