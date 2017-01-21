@@ -145,13 +145,13 @@ try:
                 
     ########Get Up Time##########
     def uptime():
-        global uptime
+        global uptimetxt
         uptimesec = os.popen("awk '{print $1}' /proc/uptime").readline()
         m, s = divmod(float(uptimesec), 60)
         h, m = divmod(m, 60)
         d, h = divmod(h, 24)
-        uptime = "%02d:%02d:%02d:%02d" % (d, h, m, s)
-        uptimestr = "System Uptime:"+uptime
+        uptimetxt = "%02d:%02d:%02d:%02d" % (d, h, m, s)
+        uptimestr = "System Uptime:"+uptimetxt
         return uptimestr
 
     ########Get Free Space on SD Card##########
@@ -652,7 +652,7 @@ try:
             autoshutdowntime = datetime.time(19) 
             if safetoshutdown and hourofday >= autoshutdowntime and home and not testing and not mobile:
                 print(uptime())
-                if uptime > "00:00:10:00":
+                if uptimetxt > "00:00:10:00":
                     print("System will Powered off in 10 Min")
                     time.sleep(600)
                     os.system("poweroff")
