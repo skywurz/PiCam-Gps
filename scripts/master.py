@@ -186,32 +186,43 @@ try:
     def purge():
         files = sorted(glob.iglob(usbcardpath+'/*'), key=os.path.getctime)
         if files != []:
-            sysvolinfo = localstore+'/System Volume Information'
 
+            fcnt = len(files) - 1
             oldest = files[0]
-            if oldest == sysvolinfo:
-                oldest = files[1]
-            oldest = files[0]
+            if os.path.isdir(oldest) and fcnt >= 1:               
+                lcnt = 1
+                while os.path.isdir(oldest):
+                    oldest = files[lcnt]
+                    lcnt += 1
+                    if lcnt >= fcnt:
+                        break
             newest = files[-1]
             sizemb = freespace()
             ###########Delete Oldest File If less than x ammount of disk space##########
             if sizemb <= 6144:
-                os.remove(oldest)
+                if not os.path.isdir(oldest):
+                    os.remove(oldest)
                 
     ########Get Oldest File on local disk##########
     def localpurge():
         files = sorted(glob.iglob(localstore+'/*'), key=os.path.getctime)
         if files != []:
-            sysvolinfo = localstore+'/System Volume Information'
-
+            fcnt = len(files) - 1
             oldest = files[0]
-            if oldest == sysvolinfo:
-                oldest = files[1]
+            if os.path.isdir(oldest) and fcnt >= 1:               
+                lcnt = 1
+                while os.path.isdir(oldest):
+                    oldest = files[lcnt]
+                    lcnt += 1
+                    if lcnt >= fcnt:
+                        break
+                    
             newest = files[-1]
             sizemb = freespace()
             ###########Delete Oldest File If less than x ammount of disk space##########
             if sizemb <= 512:
-                os.remove(oldest)
+                if not os.path.isdir(oldest):
+                    os.remove(oldest)
     
     ##########Move Local To USB Archive#####
     def archive():
