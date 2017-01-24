@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+<Style id="lastPlacemark">
+<IconStyle>
+<Icon>
+<href>http://maps.google.com/mapfiles/kml/shapes/motorcycling.png</href>
+</Icon>
+</IconStyle>
+</Style>
+<Style id="oldPlacemark">
+<IconStyle>
+<Icon>
+<href>http://maps.google.com/mapfiles/kml/paddle/red-circle-lv.png</href>
+</Icon>
+</IconStyle>
+</Style>
+<Placemark>
+<name>08:57:17 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0856.jpg" target="_blank"><img src="img/20170117_0856.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:47.07 mph<br />Speed Err:+/-34.34 mph<br />Altitude:110.2 feet<br />Altitude Err:+/-28.3 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 9/12 satellites (truncated)<br />System Uptime:00:01:00:01<br /></description>
+<styleUrl>#lastPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.666474833,38.3022675,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:54:40 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0854.jpg" target="_blank"><img src="img/20170117_0854.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:45.11 mph<br />Speed Err:+/-13.73 mph<br />Altitude:71.23 feet<br />Altitude Err:+/-30.18 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 0/0 satellites (truncated)<br />System Uptime:00:00:57:24<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.650513833,38.292233,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:52:04 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0851.jpg" target="_blank"><img src="img/20170117_0851.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:35.1 mph<br />Speed Err:+/-34.34 mph<br />Altitude:124.18 feet<br />Altitude Err:+/-30.18 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 9/12 satellites (truncated)<br />System Uptime:00:00:54:48<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.6205635,38.275432167,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:49:27 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0849.jpg" target="_blank"><img src="img/20170117_0849.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:35.56 mph<br />Speed Err:+/-13.73 mph<br />Altitude:74.48 feet<br />Altitude Err:+/-35.84 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 0/0 satellites (truncated)<br />System Uptime:00:00:52:11<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.595718,38.261418333,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:46:52 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0846.jpg" target="_blank"><img src="img/20170117_0846.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:50.4 mph<br />Speed Err:+/-34.34 mph<br />Altitude:84.02 feet<br />Altitude Err:+/-30.18 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 9/11 satellites (truncated)<br />System Uptime:00:00:49:36<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.564529167,38.252113333,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:44:16 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0844.jpg" target="_blank"><img src="img/20170117_0844.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:50.64 mph<br />Speed Err:+/-13.73 mph<br />Altitude:229.46 feet<br />Altitude Err:+/-30.18 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 0/0 satellites (truncated)<br />System Uptime:00:00:47:00<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.526599167,38.236215333,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:41:42 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0841.jpg" target="_blank"><img src="img/20170117_0841.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:49.25 mph<br />Speed Err:+/-34.34 mph<br />Altitude:56.73 feet<br />Altitude Err:+/-30.18 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 9/10 satellites (truncated)<br />System Uptime:00:00:44:26<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.495328167,38.2503405,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:39:04 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0839.jpg" target="_blank"><img src="img/20170117_0839.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:59.15 mph<br />Speed Err:+/-13.73 mph<br />Altitude:-7.45 feet<br />Altitude Err:+/-37.73 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 0/0 satellites (truncated)<br />System Uptime:00:00:41:48<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.464886667,38.242612,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:36:30 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0836.jpg" target="_blank"><img src="img/20170117_0836.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:25.55 mph<br />Speed Err:+/-34.34 mph<br />Altitude:-26.28 feet<br />Altitude Err:+/-28.3 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 9/10 satellites (truncated)<br />System Uptime:00:00:39:14<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.445808667,38.2449545,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:33:51 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0833.jpg" target="_blank"><img src="img/20170117_0833.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:44.54 mph<br />Speed Err:+/-13.73 mph<br />Altitude:-3.97 feet<br />Altitude Err:+/-28.3 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 9/10 satellites (truncated)<br />System Uptime:00:00:36:35<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.414359667,38.246643333,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:31:18 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0831.jpg" target="_blank"><img src="img/20170117_0831.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:55.12 mph<br />Speed Err:+/-34.34 mph<br />Altitude:190.78 feet<br />Altitude Err:+/-37.73 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 8/11 satellites (truncated)<br />System Uptime:00:00:34:01<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.385704667,38.251396667,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:28:40 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0828.jpg" target="_blank"><img src="img/20170117_0828.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:31.53 mph<br />Speed Err:+/-13.73 mph<br />Altitude:67.49 feet<br />Altitude Err:+/-37.73 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 0/0 satellites (truncated)<br />System Uptime:00:00:31:24<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.3448655,38.255775333,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:26:06 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0825.jpg" target="_blank"><img src="img/20170117_0825.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:33.37 mph<br />Speed Err:+/-34.34 mph<br />Altitude:-9.12 feet<br />Altitude Err:+/-37.73 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 8/11 satellites (truncated)<br />System Uptime:00:00:28:50<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.303448333,38.2549055,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:23:28 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0823.jpg" target="_blank"><img src="img/20170117_0823.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:38.9 mph<br />Speed Err:+/-13.73 mph<br />Altitude:61.71 feet<br />Altitude Err:+/-37.73 feet<br />Latitude Err:+/-10.07 feet<br />Longitude Err:+/-9.14 feet<br />Using 0/0 satellites (truncated)<br />System Uptime:00:00:26:12<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.2659505,38.238985167,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:20:53 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0820.jpg" target="_blank"><img src="img/20170117_0820.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:25.09 mph<br />Speed Err:+/-54.94 mph<br />Altitude:88.55 feet<br />Altitude Err:+/-143.37 feet<br />Latitude Err:+/-40.29 feet<br />Longitude Err:+/-36.58 feet<br />Using 8/11 satellites (truncated)<br />System Uptime:00:00:23:37<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.253187833,38.2273215,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:18:11 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0817.jpg" target="_blank"><img src="img/20170117_0817.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:45.11 mph<br />Speed Err:+/-54.94 mph<br />Altitude:107.51 feet<br />Altitude Err:+/-143.37 feet<br />Latitude Err:+/-40.29 feet<br />Longitude Err:+/-36.58 feet<br />Using 0/0 satellites (truncated)<br />System Uptime:00:00:20:55<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.242696833,38.221309167,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:15:38 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0815.jpg" target="_blank"><img src="img/20170117_0815.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:37.98 mph<br />Speed Err:+/-54.94 mph<br />Altitude:234.51 feet<br />Altitude Err:+/-143.37 feet<br />Latitude Err:+/-40.29 feet<br />Longitude Err:+/-36.58 feet<br />Using 8/12 satellites (truncated)<br />System Uptime:00:00:18:22<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.215299833,38.213841167,0
+</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>08:13:02 AM - 01/17/17</name>
+<description><![CDATA[<a href="img/20170117_0812.jpg" target="_blank"><img src="img/20170117_0812.jpg"style=width:320px;height:180px;/></a>]]><br />Status:3D  <br />Speed:68.36 mph<br />Speed Err:+/-54.94 mph<br />Altitude:188.78 feet<br />Altitude Err:+/-113.19 feet<br />Latitude Err:+/-40.29 feet<br />Longitude Err:+/-36.58 feet<br />Using 0/0 satellites (truncated)<br />System Uptime:00:00:15:46<br /></description>
+<styleUrl>#oldPlacemark</styleUrl>
+<Point>
+<coordinates>
+-122.1686165,38.207695333,0
+</coordinates>
+</Point>
+</Placemark>
+</Document>
+</kml>

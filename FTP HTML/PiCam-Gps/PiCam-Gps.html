@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Pi-Cam</title>
+    <style>
+      html, body {
+        height: 400px;
+        padding: 0;
+        margin: 0;
+        }
+      #map {
+       height: 400px;
+       width: 600px;
+       overflow: hidden;
+       float: left;
+       border: thin solid #333;
+       }
+	   
+	   #list {
+    font-size: 200%;
+	font-weight: bold;
+}
+ #capture {
+       height: 600px;
+       width: 600px;
+       overflow: hidden;
+       float: left;
+       background-color: #ECECFB;
+       border: thin solid #333;
+       border-left: none;
+	   clear:both;
+       }
+    </style>
+  </head>
+  <body>
+    <script>
+      var map;
+      var src = "http://yoururl/bikekml.kml?test=" + Math.round(new Date().getTime());
+
+      /**
+       * Initializes the map and calls the function that creates polylines.
+       */
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: new google.maps.LatLng(38,-122),
+          zoom: 5,
+          mapTypeId: 'terrain'
+        });
+        loadKmlLayer(src, map);
+      }
+
+      /**
+       * Adds a KMLLayer based on the URL passed. Clicking on a marker
+       * results in the balloon content being loaded into the right-hand div.
+       * @param {string} src A URL for a KML file.
+       */
+      function loadKmlLayer(src, map) {
+        var kmlLayer = new google.maps.KmlLayer(src, {
+          suppressInfoWindows: true,
+          preserveViewport: false,
+          map: map
+        });
+google.maps.event.addListener(kmlLayer, 'click', function(event) {
+          var content = event.featureData.infoWindowHtml;
+          var testimonial = document.getElementById('capture');
+          testimonial.innerHTML = content;
+        });
+      }
+       
+
+
+      </script>
+    <div id="map"></div>
+    <script async defer
+		src="https://maps.googleapis.com/maps/api/js?key= YOUR GOOGLE API KEY &callback=initMap">
+    </script>
+<div id="capture"></div>
+  </body>
+</html>
