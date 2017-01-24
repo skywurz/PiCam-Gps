@@ -2,6 +2,7 @@
 import cgi
 import os
 import time
+print("Content-type: text/html \n\n")
 print(''' 
 <html>
 	<head>
