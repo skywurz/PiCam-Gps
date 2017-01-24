@@ -18,6 +18,9 @@ sudo apt-get install screen
 sudo apt-get install mkvtoolnix
 sudo pip3 install ephem
 sudo pip3 install gps3
+sudo apt-get install apache2
+sudo a2enmod cgi
+sudo service apache2 restart
 
 Full list of python3 libs:
 chardet (2.3.0)
