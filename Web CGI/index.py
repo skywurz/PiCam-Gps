@@ -200,3 +200,8 @@ print('''
 
 	</body>
 </html>''')
+while True:
+    form = cgi.FieldStorage()
+
+    if "Reboot" in form:
+        os.system("reboot now")
