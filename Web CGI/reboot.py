@@ -23,4 +23,5 @@ print('''
 <div class="content">
 </article>''')
 os.system("sudo reboot now")
+print("Location:/cgi-bin/index.py \r\n") 
 
