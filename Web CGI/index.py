@@ -50,8 +50,11 @@ print(''' </header>
 									<div class="content">
 
 										<ul class="actions">
+										<li><form name="reboot" action="/cgi-bin/reboot.py" method="get">
+                                        <input class="button big" type="submit" value="Reboot">
+                                        </form></li><br>
 											<li><a href="#" class="button big" name="Photo">Take Photo</a></li><br>
-											<li><a href="#" class="button big" name="Reboot">Reboot</a></li><br>
+
 											<li><a href="#" class="button big" name="Shutdown">Shutdown</a></li><br>
 										</ul>
 									</div>
@@ -200,8 +203,3 @@ print('''
 
 	</body>
 </html>''')
-while True:
-    form = cgi.FieldStorage()
-
-    if "Reboot" in form:
-        os.system("reboot now")
