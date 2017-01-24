@@ -67,10 +67,8 @@ print('''
 								<section>
 									<header class="major">
 										<h2>Status</h2>
-									</header>''')
-print('<div class="featuresg">')
-print('<article>')
-print('<span class="icon fa-check-square"></span>')
+								</header>''')
+####GPS####	
 print(''' <div class="content">
 <h3>GPS</h3>
 <!-- <p>GPS Connectivity and </p> -->
@@ -80,6 +78,7 @@ print(''' <div class="content">
 print('<div class="featuresg">')
 print('<article>')
 print('<span class="icon fa-check-square"></span>')
+####Camera####
 print(''' <div class="content">
 <h3>Camera</h3>
 <!-- <p>Camera Is connected</p> -->
@@ -89,6 +88,7 @@ print(''' <div class="content">
 print('<div class="featuresg">')
 print('<article>')
 print('<span class="icon fa-check-square"></span>')
+####FTP####
 print('''<div class="content">
 <h3>FTP</h3>
 <!-- <p>FTP is running</p> -->
@@ -98,13 +98,19 @@ print('''<div class="content">
 print('<div class="featuresg">')
 print('<article>')
 print('<span class="icon fa-check-square"></span>')
+####System State####
 print('''<div class="content">
 <h3>System State</h3>
 <!--  <p></p> -->
 </div>
 </article>
 </div>
-</section>
+</section>''')
+print('<div class="featuresg">')
+print('<article>')
+print('<span class="icon fa-check-square"></span>')
+
+print('''
 
 							<!-- Section 
 								<section>
