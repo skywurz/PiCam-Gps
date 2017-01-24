@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import cgi
 import pickle
 #featuresg = green
@@ -7,28 +7,18 @@ import pickle
 
 
 
-#######try to open pickle file##########
-try:
-    gpshistrpyl = open(scriptpath+'/'+'gpshist.pyl', 'rb')
-    gpspyl = pickle.load(gpshistrpyl)
-    gpshistrpyl.close()
-except:
-    gpspyl = {}
-    gpshistrpyl = open(scriptpath+'/'+'gpshist.pyl', 'wb')
-    pickle.dump(gpspyl,gpshistrpyl)
-    gpshistrpyl.close()
 
-print("Content-type: text/html")
+print("Content-type: text/html /n/n")
 print(''' 
 <html>
 	<head>
 		<title>Rasp-Cam</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="./assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="./assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="./assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="./assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
 
@@ -186,11 +176,11 @@ print('''<div class="content">
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+			<script src="./assets/js/jquery.min.js"></script>
+			<script src="./assets/js/skel.min.js"></script>
+			<script src="./assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="./assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="./assets/js/main.js"></script>
 
 	</body>
 </html>''')
