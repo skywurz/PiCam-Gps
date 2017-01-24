@@ -5,7 +5,14 @@ import pickle
 #features = red
 #featuresgy= yellow
 
-
+def uptime():
+    uptimesec = os.popen("awk '{print $1}' /proc/uptime").readline()
+    m, s = divmod(float(uptimesec), 60)
+    h, m = divmod(m, 60)
+    d, h = divmod(h, 24)
+    uptimetxt = "%02d:%02d:%02d:%02d" % (d, h, m, s)
+    uptimestr = "System Uptime:"+uptimetxt
+    return uptimestr
 
 
 print("Content-type: text/html \n\n")
@@ -32,8 +39,10 @@ print('''
 							<!-- Header -->
 								<header id="header">
 									<a href="index.html" class="logo"><strong>Rasp-Cam</strong></a>
-								<h3>"Last Update:"</h3>
-								</header>
+									''')
+print('<h3>"Last Update:"</h3>')
+print('<h3>"'+uptime()+'"</h3>')
+print(''' </header>
 
 							<!-- Banner -->
 								<section id="banner">
