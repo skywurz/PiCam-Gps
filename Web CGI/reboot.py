@@ -17,10 +17,10 @@ print('''
 	<body>
 ''')
 print(''' 
+<h3>Rebooting</h3>
 <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
 <span class="sr-only">Loading...</span>
 <div class="content">
-<h3>Rebooting</h3>
 </article>''')
 os.system("sudo reboot now")
 
