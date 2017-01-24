@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import cgi
 import pickle
+import os
 #featuresg = green
 #features = red
 #featuresgy= yellow
@@ -11,7 +12,7 @@ def uptime():
     h, m = divmod(m, 60)
     d, h = divmod(h, 24)
     uptimetxt = "%02d:%02d:%02d:%02d" % (d, h, m, s)
-    uptimestr = "System Uptime:"+uptimetxt
+    uptimestr = "Uptime:<br>"+uptimetxt
     return uptimestr
 
 
@@ -40,8 +41,8 @@ print('''
 								<header id="header">
 									<a href="index.html" class="logo"><strong>Rasp-Cam</strong></a>
 									''')
-print('<h3>"Last Update:"</h3>')
-print('<h3>"'+uptime()+'"</h3>')
+print('<h3>Last Update:</h3>')
+print('<h3>'+uptime()+'</h3>')
 print(''' </header>
 
 							<!-- Banner -->
