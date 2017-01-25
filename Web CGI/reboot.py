@@ -18,10 +18,13 @@ print('''
 		<meta http-equiv="refresh" content="3; url=/cgi-bin/index.py" />
 	</head>
 	<body>
+	 <div style=margin:0 auto;">
 <h3>Rebooting</h3>
 <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
 <span class="sr-only">Loading...</span>
 <div class="content">
-</article>''', flush=True)
+</article>
+</div>
+''', flush=True)
 time.sleep(5)
 os.system('sudo reboot now')
