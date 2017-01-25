@@ -111,7 +111,7 @@ print(''' <div class="content">
 
 
 if gpsresetloopcount > 0:
-    print('<p>GPS has looped '+ str(gpsresetloopcount) +' times without a fix</p>')
+    print('<p>GPS has looped '+ str(gpsresetloopcount) +' times without a fix!</p>')
     print('<div class="featuresy">')
     print('<article>')
     print('<span class="icon fa-exclamation-triangle"></span>')
@@ -132,12 +132,22 @@ print('''</div>
 </article>''')
 ####Camera####
 print(''' <div class="content">
-<h3>Camera</h3>
-<!-- <p>Camera Is connected</p> -->
-''')
-print('<div class="featuresg">')
+<h3>Camera</h3>''')
+if lediostat == 1:
+    print('<p>Camera Night Mode Active.</p>')
+
+
+    
+
+if record:
+    print('<div class="featuresg">')
+else:
+    print('<div class="features">')
 print('<article>')
-print('<span class="icon fa-check-square"></span>')
+if recordenable:
+    print('<span class="icon fa-check-square"></span>')
+else:
+    print('<span class="icon fa-times-circle"></span>')
 print('''</div>
 </div>
 </article>''')
@@ -148,18 +158,38 @@ print('''<div class="content">
 ''')
 print('<div class="featuresg">')
 print('<article>')
-print('<span class="icon fa-check-square"></span>')
+if ftp:
+    print('<span class="icon fa-check-square"></span>')
+else:
+    print('<span class="icon fa-times-circle"></span>')
 print('''</div>
 </div>
 </article>''')
 ####System State####
 print('''<div class="content">
 <h3>System State</h3>
-<!--  <p></p> -->
 ''')
-print('<div class="featuresg">')
-print('<article>')
-print('<span class="icon fa-check-square"></span>')
+
+if safetoshutdown:
+    print('<p>System is idle Safe To Shutdown.</p>')
+    print('<div class="featuresg">')
+    print('<article>')
+    print('<span class="icon fa-check-square"></span>')
+
+    
+else:
+    if pweroffinten:
+    print('<p>System is going to shutdown in less than 10 min.</p>')
+    print('<div class="features">')
+    print('<article>')
+    print('<span class="icon fa-exclamation-triangle"></span>')
+    else:
+
+        print('<div class="featuresg">')
+        print('<article>')
+        print('<span class="icon fa-check-square"></span>')
+
+
 print('''</div>
 </div>
 </article>
