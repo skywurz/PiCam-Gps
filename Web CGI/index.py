@@ -114,6 +114,7 @@ if gpsresetloopcount > 0:
     print('<p>GPS has looped '+ gpsresetloopcount +' times without a fix</p>')
     print('<div class="featuresy">')
     print('<span class="icon fa-exclamation-triangle"></span>')
+    
 else:
     if gps:
     print('<div class="featuresg">')
