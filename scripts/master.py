@@ -634,7 +634,10 @@ try:
         #Last update
         ststspkl[0] = timeString
         #Last Photo
-        shutil.copy(localstore+'/'+stillframename+'.jpg','/var/www/html/img/'+stillframename+'.jpg',) 
+        try:
+            shutil.copy(localstore+'/'+stillframename+'.jpg','/var/www/html/img/'+stillframename+'.jpg',) 
+        except:
+            shutil.copy(scriptstore+'/'+stillframename+'.jpg','/var/www/html/img/'+stillframename+'.jpg',) 
         ststspkl[1] = stillframename+'.jpg'
         #GPS Status
         ststspkl[2] = gpsenable
