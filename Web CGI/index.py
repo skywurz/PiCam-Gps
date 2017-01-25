@@ -117,14 +117,14 @@ if gpsresetloopcount > 0:
     
 else:
     if gps:
-    print('<div class="featuresg">')
+        print('<div class="featuresg">')
     else:
-    print('<div class="features">')
-    print('<article>')
-    if gpsenable:
-    print('<span class="icon fa-check-square"></span>')
-    else:
-    print('<span class="icon fa-times-circle"></span>')
+        print('<div class="features">')
+        print('<article>')
+        if gpsenable:
+        print('<span class="icon fa-check-square"></span>')
+        else:
+        print('<span class="icon fa-times-circle"></span>')
 print('''</div>
 </div>
 </article>''')
