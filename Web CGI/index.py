@@ -17,7 +17,7 @@ def uptime():
 
 #######try to open pickle file##########
 try:
-    statsexportpkl = open('/user/pi/scripts/'+'ststspkl.pyl', 'rb')
+    statsexportpkl = open('/home/pi/scripts/'+'ststspkl.pyl', 'rb')
     ststspkl = pickle.load(statsexportpkl)
     statsexportpkl.close()
 except:
@@ -110,14 +110,14 @@ print(''' <div class="content">
 <h3>GPS</h3>''')
 
 
-if int(gpsresetloopcount) > 0:
+if gpsresetloopcount > 0:
     print('<p>GPS has looped '+ gpsresetloopcount +' times without a fix</p>')
-if gps  == "True":
+if gps:
     print('<div class="featuresg">')
 else:
     print('<div class="features">')
 print('<article>')
-if gpsenable == "True":
+if gpsenable:
     print('<span class="icon fa-check-square"></span>')
 else:
     print('<span class="icon fa-times-circle"></span>')
