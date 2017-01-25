@@ -110,14 +110,14 @@ print(''' <div class="content">
 <h3>GPS</h3>''')
 
 
-if gpsresetloopcount > 0:
+if int(gpsresetloopcount) > 0:
     print('<p>GPS has looped '+ gpsresetloopcount +' times without a fix</p>')
-if gps:
+if gps  == "True":
     print('<div class="featuresg">')
 else:
     print('<div class="features">')
 print('<article>')
-if gpsenable:
+if gpsenable == "True":
     print('<span class="icon fa-check-square"></span>')
 else:
     print('<span class="icon fa-times-circle"></span>')
