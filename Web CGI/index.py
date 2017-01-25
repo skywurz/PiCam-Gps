@@ -97,7 +97,7 @@ print(''' </header>
                                     
                                     <span class="image object">''')
                                     
-print('<img src="../img/sad-camera.jpg" alt="" />')
+print('<img src="../img/'+ lastphoto +'" alt="" />')
 print(''' 
                                     </span>
                                 </section>
