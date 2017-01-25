@@ -45,7 +45,8 @@ def statsimport():
     gpslooptime = ststspkl[9]
     safetoshutdown = ststspkl[10]
     pweroffinten = ststspkl[11]
-
+statsimport()
+   
 
 print("Content-type: text/html \n\n")
 print(''' 
