@@ -52,19 +52,15 @@ print(''' </header>
                                         <ul class="actions">
                                         <li><form name="photo" action="/cgi-bin/photo.py" method="get">
                                         <input class="button big" type="submit" value="Take Photo">
-                                        </form></li><br>
+                                        </form></li>
                                         
                                         <li><form name="reboot" action="/cgi-bin/reboot.py" method="get">
                                         <input class="button big" type="submit" value="Reboot">
-                                        </form></li><br>
+                                        </form></li>
                                         
                                         <li><form name="shutdown" action="/cgi-bin/shutdown.py" method="get">
                                         <input class="button big" type="submit" value="Shutdown">
-                                        </form></li><br>
-                                        
-                                            <li><a href="#" class="button big" name="Photo">Take Photo</a></li><br>
-
-                                            <li><a href="#" class="button big" name="Shutdown">Shutdown</a></li><br>
+                                        </form></li>
                                         </ul>
                                     </div>
                                     
