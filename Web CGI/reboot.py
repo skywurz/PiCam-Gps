@@ -2,8 +2,10 @@
 import cgi
 import os
 import time
+import sys
+
 print("Content-type: text/html \n\n")
-print(''' 
+sys.stdout.write('''' 
 <html>
 	<head>
 		<title>Rasp-Cam</title>
@@ -13,16 +15,16 @@ print('''
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="../assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="../assets/css/ie8.css" /><![endif]-->
-		<meta http-equiv="refresh" content="0; url=/cgi-bin/index.py" />
+		<meta http-equiv="refresh" content="3; url=/cgi-bin/index.py" />
 	</head>
 	<body>
-''')
-print(''' 
 <h3>Rebooting</h3>
 <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
 <span class="sr-only">Loading...</span>
 <div class="content">
 </article>''')
+sys.stdout.flush()
+time.sleep(4)
 os.system("sudo reboot now")
 
 
