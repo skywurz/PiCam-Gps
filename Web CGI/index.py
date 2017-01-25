@@ -170,7 +170,7 @@ print('''<div class="content">
 <h3>System State</h3>
 ''')
 
-if safetoshutdown:
+if not safetoshutdown:
     print('<p>System is idle Safe To Shutdown.</p>')
     print('<div class="featuresg">')
     print('<article>')
