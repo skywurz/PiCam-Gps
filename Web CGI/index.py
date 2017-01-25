@@ -112,7 +112,11 @@ print(''' <div class="content">
 
 if gpsresetloopcount > 0:
     print('<p>GPS has looped '+ str(gpsresetloopcount) +' times without a fix!</p>')
-    print('<div class="featuresy">')
+    if gpsresetloopcount >= 5:
+        print('<p>If a fix is not found by 15 loops, the system will reset.</p>')
+        print('<div class="features">')
+    else:
+        print('<div class="featuresy">')
     print('<article>')
     print('<span class="icon fa-exclamation-triangle"></span>')
 
