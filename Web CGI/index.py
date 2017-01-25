@@ -22,9 +22,6 @@ def statsimport():
         statsexportpkl.close()
     except:
         ststspkl = "err","sad-camera.jpg","err","err","err","err","err","err","err","err","err","err"
-        statsexportpkl = open(scriptpath+'/'+'ststspkl.pyl', 'wb')
-        pickle.dump(ststspkl,statsexportpkl)
-        statsexportpkl.close()
     
        
     #Last update
