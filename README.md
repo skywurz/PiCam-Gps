@@ -20,7 +20,9 @@ sudo pip3 install ephem
 sudo pip3 install gps3
 sudo apt-get install apache2
 sudo a2enmod cgi
+sudo a2dismod deflate #makes CGIs load before return
 sudo service apache2 restart
+
 
 Full list of python3 libs:
 chardet (2.3.0)
