@@ -1,11 +1,11 @@
-#!/usr/bin/python3
+#!/usr/bin/python3 -u
 import cgi
+import subprocess
 import os
 import time
-import sys
 
-print("Content-type: text/html \n\n")
-sys.stdout.write('''' 
+print("Content-type: text/html \n\n", flush=True)
+print('''
 <html>
 	<head>
 		<title>Rasp-Cam</title>
@@ -22,9 +22,6 @@ sys.stdout.write(''''
 <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
 <span class="sr-only">Loading...</span>
 <div class="content">
-</article>''')
-sys.stdout.flush()
-time.sleep(4)
-os.system("sudo reboot now")
-
-
+</article>''', flush=True)
+time.sleep(5)
+os.system('sudo reboot now')
