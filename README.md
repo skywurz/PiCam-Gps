@@ -18,7 +18,6 @@ sudo apt-get install screen
 sudo apt-get install mkvtoolnix
 sudo pip3 install ephem
 sudo pip3 install gps3
-sudo pip3 install fasteners 
 sudo apt-get install apache2
 sudo a2enmod cgi
 sudo a2dismod deflate #makes CGIs load before return
