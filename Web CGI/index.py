@@ -14,6 +14,37 @@ def uptime():
     uptimetxt = "%02d:%02d:%02d:%02d" % (d, h, m, s)
     uptimestr = "Uptime:<br>"+uptimetxt
     return uptimestr
+def statsimport():
+#######try to open pickle file##########
+    try:
+        statsexportpkl = open('/user/pi/scripts/'+'ststspkl.pyl', 'rb')
+        ststspkl = pickle.load(statsexportpkl)
+        statsexportpkl.close()
+    except:
+        ststspkl = "err","err","err","err","err","err","err","err","err","err","err","err"
+        statsexportpkl = open(scriptpath+'/'+'ststspkl.pyl', 'wb')
+        pickle.dump(ststspkl,statsexportpkl)
+        statsexportpkl.close()
+    
+       
+    #Last update
+    timeString = ststspkl[0]
+    #Last Photo
+    lastphoto = ststspkl[1]
+    #GPS Status
+    gpsenable = ststspkl[2]
+    gps = ststspkl[3]
+    gpsresetloopcount = ststspkl[4]
+    #Camera Status
+    recordenable = ststspkl[5]
+    record = ststspkl[6]
+    lediostat = ststspkl[7]
+    #FTP Status
+    ftp = ststspkl[8]
+    #System Status
+    gpslooptime = ststspkl[9]
+    safetoshutdown = ststspkl[10]
+    pweroffinten = ststspkl[11]
 
 
 print("Content-type: text/html \n\n")
@@ -41,7 +72,7 @@ print('''
                                 <header id="header">
                                     <a href="index.html" class="logo"><strong>Rasp-Cam</strong></a>
                                     ''')
-print('<h3>Last Update:</h3>')
+print('<h3>Last Update: '+timeString+'</h3>')
 print('<h3>'+uptime()+'</h3>')
 print(''' </header>
 
@@ -66,7 +97,7 @@ print(''' </header>
                                     
                                     <span class="image object">''')
                                     
-print('<img src=" images/pic10.jpg " alt="" />')
+print('<img src="../img/sad-camera.jpg" alt="" />')
 print(''' 
                                     </span>
                                 </section>
@@ -78,12 +109,20 @@ print('''
                                 </header>''')
 ####GPS####    
 print(''' <div class="content">
-<h3>GPS</h3>
-<!-- <p>GPS Connectivity and </p> -->
-''')
-print('<div class="featuresg">')
+<h3>GPS</h3>''')
+
+
+if gpsresetloopcount > 0:
+    print('<p>GPS has looped '+ gpsresetloopcount +' times without a fix</p>')
+if gps:
+    print('<div class="featuresg">')
+else:
+    print('<div class="features">')
 print('<article>')
-print('<span class="icon fa-check-square"></span>')
+if gpsenable:
+    print('<span class="icon fa-check-square"></span>')
+else:
+    print('<span class="icon fa-times-circle"></span>')
 print('''</div>
 </div>
 </article>''')
