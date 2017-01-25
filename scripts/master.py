@@ -637,7 +637,7 @@ try:
         try:
             shutil.copy(localstore+'/'+stillframename+'.jpg','/var/www/html/img/'+stillframename+'.jpg',) 
         except:
-            shutil.copy(scriptstore+'/'+stillframename+'.jpg','/var/www/html/img/'+stillframename+'.jpg',) 
+            shutil.copy(scriptpath +'/'+stillframename+'.jpg','/var/www/html/img/'+stillframename+'.jpg',) 
         ststspkl[1] = stillframename+'.jpg'
         #GPS Status
         ststspkl[2] = gpsenable
