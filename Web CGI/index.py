@@ -56,7 +56,7 @@ print(''' </header>
                                         
                                         <li><form name="reboot" action="/cgi-bin/reboot.py" method="get">
                                         <input class="button small" type="submit" value="Reboot">
-                                        </form>
+                                        </form><br>
 					
                                         <form name="shutdown" action="/cgi-bin/shutdown.py" method="get">
                                         <input class="button small" type="submit" value="Shutdown">
