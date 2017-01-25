@@ -179,10 +179,10 @@ if safetoshutdown:
     
 else:
     if pweroffinten:
-    print('<p>System is going to shutdown in less than 10 min.</p>')
-    print('<div class="features">')
-    print('<article>')
-    print('<span class="icon fa-exclamation-triangle"></span>')
+        print('<p>System is going to shutdown in less than 10 min.</p>')
+        print('<div class="features">')
+        print('<article>')
+        print('<span class="icon fa-exclamation-triangle"></span>')
     else:
 
         print('<div class="featuresg">')
