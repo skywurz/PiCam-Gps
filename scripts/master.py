@@ -29,6 +29,7 @@ safetoshutdown = True
 recordinprogress = False
 sunup = True
 pweroffinten = False
+stillframename = "sad-camera"
 lediostat = 0
 gpsresetloopcount = 0
 gpslooptime = datetime.datetime.now()
