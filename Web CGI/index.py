@@ -113,17 +113,19 @@ print(''' <div class="content">
 if gpsresetloopcount > 0:
     print('<p>GPS has looped '+ gpsresetloopcount +' times without a fix</p>')
     print('<div class="featuresy">')
+    print('<article>')
     print('<span class="icon fa-exclamation-triangle"></span>')
+
     
 else:
     if gps:
         print('<div class="featuresg">')
     else:
         print('<div class="features">')
-        print('<article>')
-        if gpsenable:
+    print('<article>')
+    if gpsenable:
         print('<span class="icon fa-check-square"></span>')
-        else:
+    else:
         print('<span class="icon fa-times-circle"></span>')
 print('''</div>
 </div>
