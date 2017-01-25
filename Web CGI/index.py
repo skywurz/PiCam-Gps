@@ -14,35 +14,35 @@ def uptime():
     uptimetxt = "%02d:%02d:%02d:%02d" % (d, h, m, s)
     uptimestr = "Uptime:<br>"+uptimetxt
     return uptimestr
-def statsimport():
+
 #######try to open pickle file##########
-    try:
-        statsexportpkl = open('/user/pi/scripts/'+'ststspkl.pyl', 'rb')
-        ststspkl = pickle.load(statsexportpkl)
-        statsexportpkl.close()
-    except:
-        ststspkl = "err","sad-camera.jpg","err","err","err","err","err","err","err","err","err","err"
-    
-       
-    #Last update
-    timeString = ststspkl[0]
-    #Last Photo
-    lastphoto = ststspkl[1]
-    #GPS Status
-    gpsenable = ststspkl[2]
-    gps = ststspkl[3]
-    gpsresetloopcount = ststspkl[4]
-    #Camera Status
-    recordenable = ststspkl[5]
-    record = ststspkl[6]
-    lediostat = ststspkl[7]
-    #FTP Status
-    ftp = ststspkl[8]
-    #System Status
-    gpslooptime = ststspkl[9]
-    safetoshutdown = ststspkl[10]
-    pweroffinten = ststspkl[11]
-statsimport()
+try:
+    statsexportpkl = open('/user/pi/scripts/'+'ststspkl.pyl', 'rb')
+    ststspkl = pickle.load(statsexportpkl)
+    statsexportpkl.close()
+except:
+    ststspkl = "err","sad-camera.jpg","err","err","err","err","err","err","err","err","err","err"
+
+
+#Last update
+timeString = ststspkl[0]
+#Last Photo
+lastphoto = ststspkl[1]
+#GPS Status
+gpsenable = ststspkl[2]
+gps = ststspkl[3]
+gpsresetloopcount = ststspkl[4]
+#Camera Status
+recordenable = ststspkl[5]
+record = ststspkl[6]
+lediostat = ststspkl[7]
+#FTP Status
+ftp = ststspkl[8]
+#System Status
+gpslooptime = ststspkl[9]
+safetoshutdown = ststspkl[10]
+pweroffinten = ststspkl[11]
+
    
 
 print("Content-type: text/html \n\n")
