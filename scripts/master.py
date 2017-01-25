@@ -28,6 +28,8 @@ ftp_cleanup = time.time() - 7*86400 # seven days
 safetoshutdown = True
 recordinprogress = False
 sunup = True
+pweroffinten = False
+lediostat = 0
 gpsresetloopcount = 0
 gpslooptime = datetime.datetime.now()
 CONVERSION = {'imperial': (2.2369363, 3.2808399, 'mph', 'feet')}
@@ -291,10 +293,13 @@ try:
             
     ######Changes LED State######        
     def ledstate():
+        global lediostat
         if sunup:
             led = subprocess.Popen(['scripts/./rpi3-gpiovirtbuf', 's', '134', '0'])
+            lediostat = 0
         else:
-            led = subprocess.Popen(['scripts/./rpi3-gpiovirtbuf', 's', '134', '1'])   
+            led = subprocess.Popen(['scripts/./rpi3-gpiovirtbuf', 's', '134', '1']) 
+            lediostat = 1            
             
     ######## Get Camera Connection Status######
     def camerastat():
@@ -619,6 +624,36 @@ try:
                         recordinprogress = False
                         camera.close()
 
+    ########Make Stats File###########
+    def statsexport():
+    #######try to open pickle file##########
+
+        ststspkl = {}
+        statsexportpkl = open(scriptpath+'/'+'ststspkl.pyl', 'wb')
+        #Last update
+        ststspkl[0] = timeString
+        #Last Photo
+        shutil.copy(localstore+'/'+stillframename+'.jpg','/var/www/html/img/'+stillframename+'.jpg',) 
+        ststspkl[1] = stillframename+'.jpg'
+        #GPS Status
+        ststspkl[2] = gpsenable
+        ststspkl[3] = gps
+        ststspkl[4] = gpsresetloopcount
+        #Camera Status
+        ststspkl[5] = recordenable
+        ststspkl[6] = record
+        ststspkl[7] = lediostat
+        #FTP Status
+        ststspkl[8] = ftp
+        #System Status
+        ststspkl[9] = gpslooptime
+        ststspkl[10] = safetoshutdown
+        ststspkl[11] = pweroffinten
+        pickle.dump(ststspkl,statsexportpkl)
+        statsexportpkl.close()
+
+    
+    
     ########Threads########
     gpsthread = threading.Thread(target=gpskml)
     #add recorder thread add dates to recorder files  
@@ -633,6 +668,7 @@ try:
             timenow()
             wifissids()
             ftpcleanup()
+            
             if gpsenable:
                 gps = True
                 if not gpsthread.isAlive():
@@ -645,6 +681,7 @@ try:
                     recordthread._stop()
                     recordthread = threading.Thread(target=recorder)
                     recordthread.start()
+            statsexport()        
             time.sleep(30)
         else:
             wifissids()
@@ -666,8 +703,9 @@ try:
                 if uptimetxt > "00:00:10:00":
                     print("System will Powered off in 10 Min")
                     time.sleep(600)
+                    pweroffinten = True
                     os.system("poweroff")
-                    
+            statsexport()        
             time.sleep(30)
             
         time.sleep(30)
