@@ -27,4 +27,4 @@ print('''
 </div>
 ''', flush=True)
 time.sleep(5)
-os.system('sudo shutdown now')
+os.system('sudo poweroff')
