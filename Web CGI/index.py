@@ -36,8 +36,10 @@ gpsresetloopcount = ststspkl[4]
 recordenable = ststspkl[5]
 record = ststspkl[6]
 lediostat = ststspkl[7]
+camerastat =ststspkl[12]
 #FTP Status
 ftp = ststspkl[8]
+ftperror = ststspkl[13]
 #System Status
 gpslooptime = ststspkl[9]
 safetoshutdown = ststspkl[10]
@@ -137,34 +139,51 @@ print('''</div>
 ####Camera####
 print(''' <div class="content">
 <h3>Camera</h3>''')
-if lediostat == 1:
-    print('<p>Camera Night Mode Active.</p>')
-
-
-    
-
-if record:
-    print('<div class="featuresg">')
-else:
+if !camerastat:
+    print('<p>Camera Disconnected.</p>')
     print('<div class="features">')
-print('<article>')
-if recordenable:
-    print('<span class="icon fa-check-square"></span>')
+    print('<article>')
+    print('<span class="icon fa-exclamation-triangle"></span>')
 else:
-    print('<span class="icon fa-times-circle"></span>')
+    if lediostat == 1:
+        print('<p>Camera Night Mode Active.</p>')
+
+
+        
+
+    if record:
+        print('<div class="featuresg">')
+    else:
+        print('<div class="features">')
+    print('<article>')
+    if recordenable:
+        print('<span class="icon fa-check-square"></span>')
+    else:
+        print('<span class="icon fa-times-circle"></span>')
 print('''</div>
 </div>
 </article>''')
 ####FTP####
 print('''<div class="content">
 <h3>FTP</h3>
-<!-- <p>FTP is running</p> -->
 ''')
-print('<div class="featuresg">')
-print('<article>')
+
+
 if ftp:
-    print('<span class="icon fa-check-square"></span>')
+    if ftperror:
+        print('<p>FTP has encountered an error please check web connectivity.</p>')
+        print('<div class="featuresy">')
+        print('<article>')
+        print('<span class="icon fa-exclamation-triangle"></span>')
+
+        
+    else:
+        print('<div class="featuresg">')
+        print('<article>')
+        print('<span class="icon fa-check-square"></span>')
 else:
+    print('<div class="featuresg">')
+    print('<article>')
     print('<span class="icon fa-times-circle"></span>')
 print('''</div>
 </div>
