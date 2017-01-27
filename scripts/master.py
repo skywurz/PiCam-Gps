@@ -730,7 +730,7 @@ try:
             if ftp:
                 if not ftpthread.isAlive():
                     ftpthread._stop()
-                    ftpthread = threading.Thread(target=recorder)
+                    ftpthread = threading.Thread(target=ftpsender)
                     ftpthread.start()            
             statsexport()        
             time.sleep(30)
