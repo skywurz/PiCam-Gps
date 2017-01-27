@@ -103,7 +103,7 @@ try:
                 ftperror = False
                 if ftpqueue != []:
                     session = ftplib.FTP(ftpserveradder,ftpuser,ftppass)
-                    for file in ftpqueue
+                    for file in ftpqueue:
                         if '.kml' in file:
                             file = open(file,'rb')  # file to send      
                             session.cwd('/')
