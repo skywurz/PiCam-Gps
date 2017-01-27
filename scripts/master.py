@@ -117,7 +117,7 @@ try:
                                 filename = filename.replace('/' , '')
                                 file = open(file,'rb')  # file to send  
                                 session.cwd('img')
-                                session.storbinary('STOR 'filename, file)     # send the file
+                                session.storbinary('STOR '+filename, file)     # send the file
                                 file.close()
                                 ftpqueue.remove(file)
                                 session.cwd('/')                            
