@@ -555,7 +555,7 @@ try:
                 if recordenable:
                     ftpqueue.append(localstore+'/'+stillframename+'.jpg')
                     
-            time.sleep(float(gpslooptime))
+            time.sleep(gpsrelooptime)
     #####Takes Photo From Running Video####        
     def photo():
         global stillframename
