@@ -99,13 +99,15 @@ class FTPDirectory(object):
                     yield path, ftpfile
 try:
     def ftpsender():
-        if ftp:
+        while ftp:
             try:
                 ftperror = False
                 if ftpqueue != []:
                     session = ftplib.FTP(ftpserveradder,ftpuser,ftppass)
                     for files in ftpqueue:
                         if '.kml' in files:
+                            #print('kml')
+                            #print(files)
                             file = open(files,'rb')  # file to send      
                             session.cwd('/')
                             session.storbinary('STOR bikekml.kml', file)     # send the file
@@ -113,18 +115,20 @@ try:
                             ftpqueue.remove(files)
                         else:
                             if '.jpg' in files:
+                                #print(files)
                                 session.cwd('/')
                                 filetruename = files.replace(localstore , '')
-                                filetruename = filetruename.replace('/' , '')
+                                filetruename = filetruename.replace('/' , 'STOR ')
+                                #print(filetruename)
                                 file = open(files,'rb')  # file to send  
                                 session.cwd('img')
-                                session.storbinary('STOR '+filetruename, file)     # send the file
+                                session.storbinary(filetruename, file)     # send the file
                                 file.close()
                                 ftpqueue.remove(files)
                                 session.cwd('/')                            
                     session.quit()
                 ftpcleanup()
-                time.sleep(30)
+                time.sleep(10)
             except:
                 ftperror = True
                 print('FTP Error')
@@ -405,7 +409,7 @@ try:
                 for new_data in gpsd_socket:
                     if new_data:
                         data_stream.unpack(new_data)
-                    fivedatetimemin = datetime.timedelta(minutes=2)
+                    fivedatetimemin = datetime.timedelta(minutes=gpstimeouttime)
                     gpslooptimeplus = gpslooptime + fivedatetimemin
                     #Check For Indefinate loop of no data
                     if  gpslooptimeplus <= datetime.datetime.now():
@@ -415,7 +419,7 @@ try:
                         deadgps()
                         gpsresetloopcount += 1
                         print('GPS has been reset '+str(gpsresetloopcount)+' times')
-                        if gpsresetloopcount >= 15:
+                        if gpsresetloopcount >= gpsnonfixreset:
                             os.system("reboot now")
                         raise Exception('No GPS Fix For over 2 min killing thread!')    
                     if data_stream.TPV['lat'] != 'n/a':
@@ -482,7 +486,7 @@ try:
             else:
                 for keys in gpspyl:
                     gpspylnew[(keys + 1)] = gpspyl[keys]
-                    if keys == 47:
+                    if keys == gpsmappoints:
                         break
             
             gpshistrpyl = open(scriptpath+'/'+'gpshist.pyl', 'wb')
@@ -551,7 +555,7 @@ try:
                 if recordenable:
                     ftpqueue.append(localstore+'/'+stillframename+'.jpg')
                     
-            time.sleep(140)
+            time.sleep(float(gpslooptime))
     #####Takes Photo From Running Video####        
     def photo():
         global stillframename
@@ -676,7 +680,7 @@ try:
         try:
             shutil.copy(localstore+'/'+stillframename+'.jpg','/var/www/html/img/'+stillframename+'.jpg',) 
         except:
-            shutil.copy(scriptpath +'/'+stillframename+'.jpg','/var/www/html/img/'+stillframename+'.jpg',) 
+            shutil.copy(scriptpath +'/sad-camera.jpg','/var/www/html/img/'+stillframename+'.jpg',) 
         ststspkl[1] = stillframename+'.jpg'
         #GPS Status
         ststspkl[2] = gpsenable
@@ -728,7 +732,9 @@ try:
                     recordthread._stop()
                     recordthread = threading.Thread(target=recorder)
                     recordthread.start()
-            if ftp:
+                    
+            if ftpenabled:
+                ftp = True
                 if not ftpthread.isAlive():
                     ftpthread._stop()
                     ftpthread = threading.Thread(target=ftpsender)
@@ -748,6 +754,7 @@ try:
                     pass
             gps = False
             record = False
+
             hourofday = datetime.datetime.now().time()
             autoshutdowntime = datetime.time(19) 
             if safetoshutdown and hourofday >= autoshutdowntime and home and not testing and not mobile:
