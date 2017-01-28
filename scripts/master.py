@@ -754,7 +754,7 @@ try:
                     pass
             gps = False
             record = False
-
+            ftp = False
             hourofday = datetime.datetime.now().time()
             autoshutdowntime = datetime.time(19) 
             if safetoshutdown and hourofday >= autoshutdowntime and home and not testing and not mobile:
