@@ -139,7 +139,7 @@ print('''</div>
 ####Camera####
 print(''' <div class="content">
 <h3>Camera</h3>''')
-if !camerastat:
+if not camerastat:
     print('<p>Camera Disconnected.</p>')
     print('<div class="features">')
     print('<article>')
