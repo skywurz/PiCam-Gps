@@ -104,23 +104,23 @@ try:
                 ftperror = False
                 if ftpqueue != []:
                     session = ftplib.FTP(ftpserveradder,ftpuser,ftppass)
-                    for file in ftpqueue:
+                    for files in ftpqueue:
                         if '.kml' in file:
-                            file = open(file,'rb')  # file to send      
+                            file = open(files,'rb')  # file to send      
                             session.cwd('/')
                             session.storbinary('STOR bikekml.kml', file)     # send the file
                             file.close()                                    # close file
-                            ftpqueue.remove(file)
+                            ftpqueue.remove(files)
                         else:
                             if '.jpg' in file:
                                 session.cwd('/')
-                                filename = file.replace(localstore , 'STOR ')
+                                filename = files.replace(localstore , 'STOR ')
                                 filename = filename.replace('/' , '')
-                                file = open(file,'rb')  # file to send  
+                                file = open(files,'rb')  # file to send  
                                 session.cwd('img')
                                 session.storbinary(filename, file)     # send the file
                                 file.close()
-                                ftpqueue.remove(file)
+                                ftpqueue.remove(files)
                                 session.cwd('/')                            
                     session.quit()
                 ftpcleanup()
