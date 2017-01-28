@@ -112,11 +112,11 @@ try:
                             file.close()                                    # close file
                             ftpqueue.remove(files)
                         else:
-                            if '.jpg' in file:
+                            if '.jpg' in files:
                                 session.cwd('/')
-                                filename = files.replace(localstore , 'STOR ')
+                                filename = files.replace(localstore , '')
                                 filename = filename.replace('/' , '')
-                                file = open(files,'rb')  # file to send  
+                                file = open('STOR '+files,'rb')  # file to send  
                                 session.cwd('img')
                                 session.storbinary(filename, file)     # send the file
                                 file.close()
