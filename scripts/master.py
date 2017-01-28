@@ -29,8 +29,11 @@ safetoshutdown = True
 recordinprogress = False
 sunup = True
 pweroffinten = False
+ftperror = False
+ftpqueue = []
 stillframename = "sad-camera"
 lediostat = 0
+camhealth = 0
 gpsresetloopcount = 0
 gpslooptime = datetime.datetime.now()
 CONVERSION = {'imperial': (2.2369363, 3.2808399, 'mph', 'feet')}
@@ -94,7 +97,38 @@ class FTPDirectory(object):
             for ftpdir in self.dirs:
                 for path, ftpfile in ftpdir.tree.walk():
                     yield path, ftpfile
-try:    
+try:
+    def ftpsender():
+        if ftp:
+            try:
+                ftperror = False
+                if ftpqueue != []:
+                    session = ftplib.FTP(ftpserveradder,ftpuser,ftppass)
+                    for files in ftpqueue:
+                        if '.kml' in files:
+                            file = open(files,'rb')  # file to send      
+                            session.cwd('/')
+                            session.storbinary('STOR bikekml.kml', file)     # send the file
+                            file.close()                                    # close file
+                            ftpqueue.remove(files)
+                        else:
+                            if '.jpg' in files:
+                                session.cwd('/')
+                                filetruename = files.replace(localstore , '')
+                                filetruename = filetruename.replace('/' , '')
+                                file = open(files,'rb')  # file to send  
+                                session.cwd('img')
+                                session.storbinary('STOR '+filetruename, file)     # send the file
+                                file.close()
+                                ftpqueue.remove(files)
+                                session.cwd('/')                            
+                    session.quit()
+                ftpcleanup()
+                time.sleep(30)
+            except:
+                ftperror = True
+                print('FTP Error')
+    ####Cleans up old files on ftp server####    
     def ftpcleanup():
         if ftp:
             try:
@@ -224,6 +258,27 @@ try:
             sizemb = freespace()
             ###########Delete Oldest File If less than x ammount of disk space##########
             if sizemb <= 512:
+                if not os.path.isdir(oldest):
+                    os.remove(oldest)
+                    
+    ########Keep Only 6 files in web dir##########
+    def webpurge():
+        files = sorted(glob.iglob('/var/www/html/img/*'), key=os.path.getctime)
+        if files != []:
+            fcnt = len(files) - 1
+            oldest = files[0]
+            if os.path.isdir(oldest) and fcnt >= 1:               
+                lcnt = 1
+                while os.path.isdir(oldest):
+                    oldest = files[lcnt]
+                    lcnt += 1
+                    if lcnt >= fcnt:
+                        break
+                    
+            newest = files[-1]
+            sizemb = freespace()
+            ###########Delete Oldest File If less than x ammount of disk space##########
+            if fcnt >= 5:
                 if not os.path.isdir(oldest):
                     os.remove(oldest)
     
@@ -490,21 +545,12 @@ try:
             bikekml.write("</Document>\n")
             bikekml.write("</kml>\n")            
             bikekml.close()
-                             ######FTP Settings#########
+                             ######FTP Queue#########
             if ftp:
-                try:
-                    session = ftplib.FTP(ftpserveradder,ftpuser,ftppass)
-                
-                    file = open(scriptpath+'/'+'bikekml.kml','rb')  # file to send      
-                    session.storbinary('STOR bikekml.kml', file)     # send the file
-                    file.close()                                    # close file and FTP
-                    if recordenable:
-                        file = open(localstore+'/'+stillframename+'.jpg','rb')  # file to send  
-                        session.cwd('img')
-                        session.storbinary('STOR '+stillframename+'.jpg', file)     # send the file
-                    session.quit()
-                except:
-                    pass
+                ftpqueue.append(scriptpath+'/'+'bikekml.kml')      
+                if recordenable:
+                    ftpqueue.append(localstore+'/'+stillframename+'.jpg')
+                    
             time.sleep(140)
     #####Takes Photo From Running Video####        
     def photo():
@@ -564,21 +610,13 @@ try:
                 bikekml.write("</Document>\n")
                 bikekml.write("</kml>\n")            
                 bikekml.close()
-                                 ######FTP Settings#########
+                                 ######FTP Queue#########
                 if ftp:
-                    try:
-                        session = ftplib.FTP(ftpserveradder,ftpuser,ftppass)
-                    
-                        file = open(scriptpath+'/'+'bikekml.kml','rb')  # file to send      
-                        session.storbinary('STOR bikekml.kml', file)     # send the file
-                        file.close()                                    # close file and FTP
-                        if recordenable:
-                            file = open(localstore+'/'+stillframename+'.jpg','rb')  # file to send  
-                            session.cwd('img')
-                            session.storbinary('STOR '+stillframename+'.jpg', file)     # send the file
-                        session.quit()
-                    except:
-                        pass           
+                    ftpqueue.append(scriptpath+'/'+'bikekml.kml')
+                    if recordenable:
+                        ftpqueue.append(localstore+'/'+stillframename+'.jpg')
+
+   
     ########Record Video###########
     def recorder():
         print('Recorder Thread Starting')
@@ -634,6 +672,7 @@ try:
         #Last update
         ststspkl[0] = timeString
         #Last Photo
+        webpurge()
         try:
             shutil.copy(localstore+'/'+stillframename+'.jpg','/var/www/html/img/'+stillframename+'.jpg',) 
         except:
@@ -647,8 +686,10 @@ try:
         ststspkl[5] = recordenable
         ststspkl[6] = record
         ststspkl[7] = lediostat
+        ststspkl[12] = camerastat()
         #FTP Status
         ststspkl[8] = ftp
+        ststspkl[13] = ftperror
         #System Status
         ststspkl[9] = gpslooptime
         ststspkl[10] = safetoshutdown
@@ -662,6 +703,8 @@ try:
     gpsthread = threading.Thread(target=gpskml)
     #add recorder thread add dates to recorder files  
     recordthread = threading.Thread(target=recorder)
+    #add ftp move thread
+    ftpthread = threading.Thread(target=ftpsender)
     #########Main Loop#######################        
     while True:
         wifissids()        
@@ -671,7 +714,7 @@ try:
             wifissids()
             timenow()
             wifissids()
-            ftpcleanup()
+
             
             if gpsenable:
                 gps = True
@@ -685,6 +728,11 @@ try:
                     recordthread._stop()
                     recordthread = threading.Thread(target=recorder)
                     recordthread.start()
+            if ftp:
+                if not ftpthread.isAlive():
+                    ftpthread._stop()
+                    ftpthread = threading.Thread(target=ftpsender)
+                    ftpthread.start()            
             statsexport()        
             time.sleep(30)
         else:
@@ -718,3 +766,4 @@ try:
 finally:
     os.unlink(pidfile) 
     pass
+    
