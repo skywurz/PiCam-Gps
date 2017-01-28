@@ -33,6 +33,7 @@ ftperror = False
 ftpqueue = []
 stillframename = "sad-camera"
 lediostat = 0
+camhealth = 0
 gpsresetloopcount = 0
 gpslooptime = datetime.datetime.now()
 CONVERSION = {'imperial': (2.2369363, 3.2808399, 'mph', 'feet')}
